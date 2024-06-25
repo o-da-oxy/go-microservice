@@ -1,0 +1,77 @@
+@base_address = http://localhost:8080
+
+### Get all teams
+GET {{base_address}}/teams
+
+### Create a new team
+POST {{base_address}}/teams
+Content-Type: application/json
+
+{
+  "developers": [],
+  "sprints": []
+}
+
+### Edit a team
+PUT {{base_address}}/teams/0
+Content-Type: application/json
+
+{
+  "id": 0,
+  "developers": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "developerLevel": 1,
+      "efficiencyCoefficient": 0.8,
+      "taskList": []
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "developerLevel": 2,
+      "efficiencyCoefficient": 0.9,
+      "taskList": []
+    }
+  ],
+  "sprints": [
+    {
+      "id": 1,
+      "startDate": "2023-04-01T00:00:00Z",
+      "endDate": "2023-04-15T00:00:00Z",
+      "taskList": []
+    },
+    {
+      "id": 2,
+      "startDate": "2023-04-16T00:00:00Z",
+      "endDate": "2023-04-30T00:00:00Z",
+      "taskList": []
+    }
+  ]
+}
+
+### Get a team
+GET {{base_address}}/teams/0
+
+### Create a new sprint
+POST {{base_address}}/teams/0/sprints
+Content-Type: application/json
+
+{
+  "id": 3,
+  "startDate": "2023-05-01T00:00:00Z",
+  "endDate": "2023-05-15T00:00:00Z",
+  "taskList": []
+}
+
+### Create a new developer
+POST {{base_address}}/teams/0/developers
+Content-Type: application/json
+
+{
+  "id": 3,
+  "name": "Bob Johnson",
+  "developerLevel": 0,
+  "efficiencyCoefficient": 0.7,
+  "taskList": []
+}
